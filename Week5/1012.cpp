@@ -1,6 +1,7 @@
 #include <iostream>
 #include <algorithm>
 #include <queue>
+#include <cstring>
 using namespace std;
 
 
@@ -41,7 +42,8 @@ int main(){
 
     cin >> Test_N;
 
-    for(int i = 0; i < Test_N; i++){
+
+    while(Test_N--){
 
         int N, M, K;
         int** Matrix;
@@ -49,7 +51,6 @@ int main(){
 
         Matrix = (int**)malloc(sizeof(int*) * N);
         for(int j = 0; j < N; j++) Matrix[j] = (int*)malloc(sizeof(int) * M);
-
         for(int j = 0; j < K; j++){
             int X, Y;
             cin >> X >> Y;
@@ -67,9 +68,6 @@ int main(){
         }
         cout << worm << endl;
         
-        
-        for(int j = 0; j < N; j++) free(Matrix[j]);
-        free(Matrix);
     }
 
 

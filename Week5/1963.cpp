@@ -2,7 +2,7 @@
 #include <algorithm>
 #include <queue>
 #include <cmath>
-#include <string>
+#include <cstring>
 using namespace std;
 
 bool Prime[10000];
