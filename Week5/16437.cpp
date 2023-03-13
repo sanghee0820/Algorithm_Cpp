@@ -5,10 +5,8 @@
 #define MAX 123457
 using namespace std;
 
-int wolf[MAX], island[MAX];
-
-long long answer;
-
+bool wolf[MAX];
+int island[MAX];
 vector<int> v[MAX];
 
 long long DFS(int X) {
@@ -50,4 +48,6 @@ int main() {
 	}
 
 	cout << DFS(1);
+
+	return 0;
 }

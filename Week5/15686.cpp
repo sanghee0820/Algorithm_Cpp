@@ -5,7 +5,7 @@
 using namespace std;
 
 int* selected_chicken;
-int left_chicken, min_distance = 100000;;
+int left_chicken, min_distance = 100000;
 vector< pair<int, int> > house, chicken;
 
 

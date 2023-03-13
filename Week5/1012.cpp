@@ -11,6 +11,7 @@ void BFS(int** Matrix, int x, int y, int N, int M){
     int dx[4] = {-1, 1, 0, 0};
     int dy[4] = {0, 0, -1, 1};
 
+    
     adj_queue.push(make_pair(x,y));
     Matrix[y][x] = 0;
 

@@ -17,7 +17,6 @@ void Eratosthenes(){
             Prime[i*j] = false;
         }
     }
-
 }
 
 void BFS(int start, int end){
@@ -66,7 +65,6 @@ int main(){
     Eratosthenes();
     for(int i = 0; i < N; i++){
         cin >> input[0] >> input[1];
-
         memset(Visit, false, sizeof(Visit));
         BFS(input[0], input[1]);
     }

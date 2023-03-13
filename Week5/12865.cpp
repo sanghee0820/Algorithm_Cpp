@@ -1,35 +1,42 @@
-#include <iostream>
-#include <algorithm>
+#include<iostream>
 #include <vector>
+#include <algorithm>
+#include <cmath>
+ 
 using namespace std;
-bool compair(pair<int, int> a, pair<int,int> b){
-    if( a.first == b.first) return a.second < b.second;
-    else return a.first < b.first;
-}
-
-int main(){
-    int N, K;
-    vector<pair<int,int>> Goods;
-    int DP[101][100001];
-
-    cin >> N >> K;
-
-    for(int i = 0; i < N; i++){
-        int temp1, temp2;
-        cin >> temp1 >> temp2;
-        Goods.push_back(make_pair(temp1, temp2));
+ 
+int N, K;
+int W[101];
+int V[101];
+int DP[101][100001];
+ 
+void dp(){
+    
+    for(int i = 1 ; i <= K ; i++){
+        for(int j = 1; j <= N; j++){
+            //1. 담을 수 없을 경우
+            if(W[j] > i){
+                DP[j][i] = DP[j-1][i];
+            }
+            //2. 담을 수 있는 경우
+            else{
+                DP[j][i] = max(DP[j-1][i - W[j]] + V[j]  ,  DP[j-1][i]);
+            }
+        }
     }
-    for (int i = 1; i <= N; i++)
-	{
-		for (int j = 1; j <= K; j++)
-		{
-			 
-			 if (j - Goods[i-1].first >= 0) DP[i][j] = max(DP[i - 1][j], DP[i - 1][j - Goods[i-1].first + Goods[i-1].second]);
-			 else DP[i][j] = DP[i - 1][j];
-		}
-	}
-
+    
+}
+ 
+int main(){
+ 
+    cin >> N >> K;
+    for(int i = 1; i<=N; i++){
+        cin >> W[i] >> V[i];
+    }
+ 
+    dp();
+ 
     cout << DP[N][K];
-
+    
     return 0;
 }
